@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "findtoforge-backend"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.1.1"
+python-decouple = "^3.8"
+django-jazzmin = "^3.0.0"
+six = "^1.16.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

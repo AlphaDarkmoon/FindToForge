@@ -1,0 +1,47 @@
+body {
+    overflow-x: hidden;
+    position: relative;
+
+}
+
+.btn-purple{
+    background: #62008C !important;
+}
+
+.btn-purple:hover{
+    color: white !important;
+}
+
+.bg-grey {
+    background-color: #232323 !important;
+}
+/* Uplift card  */
+.nevigation-card {
+    background-color: #0f0f0f !important;
+    transition: transform 0.3s ease-in-out;
+    height: 300px;
+}
+
+/* Card hover animation */
+.nevigation-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Center the text inside Cards  */
+.nevigation-card {          
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+.others{
+    margin-top: 20px;
+    margin-bottom: 0px;
+    background: #0f0f0f;
+}
+
+.blank{
+    height: 500px;
+}

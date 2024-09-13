@@ -1,0 +1,158 @@
+<html>
+
+<head>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+        }
+
+        .navbar {
+            background-color: #000;
+        }
+
+        .navbar-brand img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .nav-link {
+            color: white !important;
+        }
+
+        .card {
+            background-color: #000;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-body {
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .profile-icon,
+        .logout-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #4B0082;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-left: 10px;
+        }
+
+        .content {
+            background-color: #1c1c1c;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .content div {
+            background-color: #333;
+            height: 40px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .card-body {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img alt="Logo" height="30"
+                    src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-BVbpSZmLndA7MfHIxv2ahIKS/user-IBY8IaMXtVn7IVIdZeyvjx16/img-eYG8GfbX1Ns3rjgCdP9pAB6Z.png?st=2024-09-11T13%3A46%3A32Z&amp;se=2024-09-11T15%3A46%3A32Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-10T23%3A12%3A23Z&amp;ske=2024-09-11T23%3A12%3A23Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=LcUYsqXLA/zZYDF3LAXhhDbgs%2BfqAPoUUDAKe2OP/1s%3D"
+                    width="30" />
+            </a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><b>{{ username }}</b></a>
+                    </li>
+                </ul>
+
+                <!-- ------------ LOGOUT & PROFILE ------------ -->
+                 <!-- Javascript to set function of logout -->
+                 <!-- JS at end -->
+
+                 <div class="d-flex align-items-center">
+                    {% if user.is_authenticated %}
+                        <div class="logout-icon">
+                            <a id="logout-link" aria-label="Logout">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </a>
+                            <form id="logout-form" method="post" action="{% url 'logout' %}" style="display: none;">
+                                {% csrf_token %}
+                            </form>
+                        </div>
+                        <div class="profile-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    {% else %}
+                    <div class="login-icon profile-icon">
+                        <a href="{% url 'login' %}" style="color: white;" aria-label="Login">
+                            <i class="fab fa-500px"></i>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <a href="#" class="card text-decoration-none">
+                    <div class="card-body">
+                        Projects List
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 mb-4">
+                <a href="#" class="card text-decoration-none">
+                    <div class="card-body">
+                        Profile
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="content">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('logout-link').addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent the default anchor behavior
+            document.getElementById('logout-form').submit(); // Submit the form
+        });
+    </script>
+</body>
+
+</html>
